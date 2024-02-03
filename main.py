@@ -4,12 +4,12 @@ import random
 pygame.font.init()
 
 
-wIDTH, HEIGHT = 500,500
+wIDTH, HEIGHT = 700,700
 WIN = pygame.display.set_mode((wIDTH,HEIGHT))            
 pygame.display.set_caption("Python Game")
 BG = pygame.transform.scale(pygame.image.load("bg.jpeg"), (wIDTH ,HEIGHT))
-PLAYER_WIDTH=40
-PLAYER_HEIGHT=60
+PLAYER_WIDTH=10
+PLAYER_HEIGHT=10
 PLAYER_VEL=5
 FONT = pygame.font.SysFont("comicsans", 30 )
 STAR_WIDTH = 10
@@ -67,6 +67,10 @@ def main():
            player.x -= PLAYER_VEL
         if keys[pygame.K_RIGHT]and player.x + PLAYER_VEL+player.width <= wIDTH:
             player.x += PLAYER_VEL
+        if keys[pygame.K_UP] and player.y - PLAYER_VEL >=0 :
+            player.y -= PLAYER_VEL 
+        if keys[pygame.K_DOWN] and player.y + PLAYER_VEL+PLAYER_HEIGHT <= HEIGHT:
+            player.y += PLAYER_VEL  
         
         for star in stars[:]:
             
